@@ -200,3 +200,14 @@ SELECT Session_seq.NEXTVAL INTO :NEW.id_session FROM DUAL;
 END;
 /
 
+
+
+CREATE OR REPLACE TRIGGER CheckPseudo
+BEFORE INSERT ON Utilisateur
+FOR EACH ROW
+WHEN (NEW.id_session IS NULL)
+BEGIN
+SELECT Session_seq.NEXTVAL INTO :NEW.id_session FROM DUAL;
+END;
+/
+
