@@ -66,3 +66,21 @@ INSERT INTO SYSTEM.SALLE (N_SALLE, NOM_DE_SALLE, INDICES, BORNE, ID_UNIVERS, ID_
 INSERT INTO SYSTEM.SALLE (N_SALLE, NOM_DE_SALLE, INDICES, BORNE, ID_UNIVERS, ID_PARCOURS) VALUES (54, 'New ère', 'SI', null, 32, 32);
 INSERT INTO SYSTEM.SALLE (N_SALLE, NOM_DE_SALLE, INDICES, BORNE, ID_UNIVERS, ID_PARCOURS) VALUES (55, 'Serpentard', 'INTERDIT', null, 33, 29);
 INSERT INTO SYSTEM.SALLE (N_SALLE, NOM_DE_SALLE, INDICES, BORNE, ID_UNIVERS, ID_PARCOURS) VALUES (56, 'Moldus', 'Oncle', null, 33, 29);
+
+INSERT ALL
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 42, 2)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 43, 3)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 44, 9)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 45, 4)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 46, 7)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 47, 6)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 48, 16)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 49, 5)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 50, 8)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 51, 12)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 52, 14)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 53, 13)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 54, 15)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 55, 11)
+  into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 56, 10)
+SELECT 1 FROM dual
