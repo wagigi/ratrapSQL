@@ -84,3 +84,26 @@ INSERT ALL
   into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 55, 11)
   into borne (nmbre_question, n_salle, N_QUESTION) VALUES (1, 56, 10)
 SELECT 1 FROM dual
+
+CREATE TABLE Salle(
+N_Salle     number(10)   NOT NULL ,
+Nom_de_Salle Varchar2 (25) ,
+Indices      Varchar2 (255) ,
+N_Borne        Number(10) ,
+Id_Univers   Number(10) ,
+Id_parcours  Number(10) ,
+CONSTRAINT N_Salle_Pk PRIMARY KEY (N_Salle )
+using index Tablespace TS_PARCOURS)
+Tablespace TS_PARCOURS;
+ALTER TABLE Salle ADD FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
+ALTER TABLE Salle ADD FOREIGN KEY (N_Borne) REFERENCES Borne(N_Borne);
+
+CREATE OR REPLACE SEQUENCE Salle_seq START WITH 1 INCREMENT BY 1;
+CREATE OR REPLACE TRIGGER Salle_seq_tr
+BEFORE INSERT ON Salle
+FOR EACH ROW
+WHEN (NEW.N_Salle IS NULL)
+BEGIN
+SELECT Salle_seq.NEXTVAL INTO :NEW.N_Salle FROM DUAL;
+END;
+/
