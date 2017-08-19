@@ -43,7 +43,7 @@ CREATE TABLE Salle(
 N_Salle     number(10)   NOT NULL ,
 Nom_de_Salle Varchar2 (25) ,
 Indices      Varchar2 (255) ,
-Borne        Number(10) ,
+N_Borne        Number(10) ,
 Id_Univers   Number(10) ,
 Id_parcours  Number(10) ,
 CONSTRAINT N_Salle_Pk PRIMARY KEY (N_Salle )
@@ -79,6 +79,7 @@ Tablespace TS_PARCOURS;
 CREATE TABLE Borne(
 N_Borne        number(10)   NOT NULL ,
 Nmbre_Question Number(10) ,
+N_Salle        Number(10) ,
 Id_parcours    Number(10) ,
 N_Question     Number(10) ,
 Id_joueur      Number(10) ,
@@ -108,9 +109,11 @@ Tablespace TS_PARTICIPATION;
 ---------------------------------Ajout FK---------------------------------
 ALTER TABLE Parcours ADD FOREIGN KEY (Id_Univers) REFERENCES Univers(Id_Univers);
 ALTER TABLE Salle ADD FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
+ALTER TABLE Salle ADD FOREIGN KEY (N_Borne) REFERENCES Borne(N_Borne);
 ALTER TABLE Utilisateur ADD FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
 ALTER TABLE Utilisateur ADD FOREIGN KEY (N_Borne) REFERENCES Borne(N_Borne);
 ALTER TABLE Borne ADD FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
+ALTER TABLE Borne ADD FOREIGN KEY (N_Salle) REFERENCES Salle(N_Salle);
 ALTER TABLE Borne ADD FOREIGN KEY (N_Question) REFERENCES Question(N_Question);
 ALTER TABLE Borne ADD FOREIGN KEY (Id_joueur) REFERENCES Utilisateur(Id_joueur);
 ALTER TABLE score ADD FOREIGN KEY (Id_joueur) REFERENCES Utilisateur(Id_joueur);
