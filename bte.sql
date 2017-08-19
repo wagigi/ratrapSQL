@@ -40,13 +40,13 @@ Tablespace TS_Peu;
 
 ---------------------------------Salle---------------------------------
 CREATE TABLE Salle(
-N__Salle     number(10)   NOT NULL ,
+N_Salle     number(10)   NOT NULL ,
 Nom_de_Salle Varchar2 (25) ,
 Indices      Varchar2 (255) ,
 Borne        Number(10) ,
 Id_Univers   Number(10) ,
 Id_parcours  Number(10) ,
-CONSTRAINT N__Salle_Pk PRIMARY KEY (N__Salle )
+CONSTRAINT N_Salle_Pk PRIMARY KEY (N_Salle )
 using index Tablespace TS_PARCOURS)
 Tablespace TS_PARCOURS;
 
