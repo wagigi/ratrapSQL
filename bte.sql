@@ -20,9 +20,9 @@ CREATE TABLE Parcours(
 Id_parcours      number(10)   NOT NULL ,
 Nom_Parcours     Varchar2 (25) ,
 Nombre_de_Salle  Number(10) ,
-Temps_Necessaire Time(0) ,
+Temps_Necessaire TIMESTAMP(0) ,
 Id_Univers       Number(10) ,
-Est_Ouvert		 BOOLEAN,
+Est_Ouvert		 CHAR(1),
 CONSTRAINT Parcours_Pk PRIMARY KEY (Id_parcours )
 using index Tablespace TS_PARCOURS)
 Tablespace TS_PARCOURS;
@@ -108,13 +108,13 @@ Tablespace TS_PARTICIPATION;
 ---------------------------------Ajout FK---------------------------------
 ALTER TABLE Parcours ADD FOREIGN KEY (Id_Univers) REFERENCES Univers(Id_Univers);
 ALTER TABLE Salle ADD FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
-ALTER TABLE Utilisateur FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
-ALTER TABLE Utilisateur FOREIGN KEY (N_Borne) REFERENCES Borne(N_Borne);
-ALTER TABLE Borne FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
-ALTER TABLE Borne FOREIGN KEY (N_Question) REFERENCES Question(N_Question);
-ALTER TABLE Borne FOREIGN KEY (Id_joueur) REFERENCES Utilisateur(Id_joueur);
-ALTER TABLE score FOREIGN KEY (Id_joueur) REFERENCES Utilisateur(Id_joueur);
-ALTER TABLE score FOREIGN KEY (id_session) REFERENCES Sess1on(id_session);
+ALTER TABLE Utilisateur ADD FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
+ALTER TABLE Utilisateur ADD FOREIGN KEY (N_Borne) REFERENCES Borne(N_Borne);
+ALTER TABLE Borne ADD FOREIGN KEY (Id_parcours) REFERENCES Parcours(Id_parcours);
+ALTER TABLE Borne ADD FOREIGN KEY (N_Question) REFERENCES Question(N_Question);
+ALTER TABLE Borne ADD FOREIGN KEY (Id_joueur) REFERENCES Utilisateur(Id_joueur);
+ALTER TABLE score ADD FOREIGN KEY (Id_joueur) REFERENCES Utilisateur(Id_joueur);
+ALTER TABLE score ADD FOREIGN KEY (id_session) REFERENCES Sess1on(id_session);
 
 ---------------------------------Créer Séquences---------------------------------
 CREATE SEQUENCE Parcours_seq START WITH 1 INCREMENT BY 1;
